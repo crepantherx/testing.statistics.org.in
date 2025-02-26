@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Django Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-    </style>
-</head>
-<body>
-    <h1>{{ message }}</h1>
-    <p>This is a simple Django web page.</p>
-</body>
-</html>
+{% extends "app/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Home Page</h2>
+    <p>Welcome to the home page!</p>
+{% endblock %}
