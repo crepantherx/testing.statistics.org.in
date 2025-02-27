@@ -1,3 +1,67 @@
+main > fieldset > .job-postings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between books */
+    justify-content: center;
+    max-width: 1100px;
+}
+
+
+main > fieldset > .job-postings > .card {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+    text-align: center;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    color: #929292;
+    /*border: 1px solid #252424;*/
+    gap: 15px;
+    padding: 50px;
+    box-shadow: 0px 0px 120px rgba(80, 82, 91, 0.44);
+    border-radius: 50px;
+
+    width: 180px; /* Width of the book */
+    /*height: 200px; !* Height of the book *!*/
+    position: relative;
+}
+
+
+main > fieldset > .job-postings > .card > .card-header {
+    font-size: 1.5rem;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    color: white;
+}
+
+main > fieldset > .job-postings > .card > .card-price {
+    font-size: 1rem;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    color: white;
+}
+
+main > fieldset > .job-postings > .card > .talk-to-us {
+    font-size: 0.8rem;
+    color: white;
+    background-color: #050505;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+    box-shadow:
+            4px 4px 12px rgba(50, 44, 44, 0.78),
+            -4px -4px 12px rgba(221, 220, 220, 0.37);
+}
+
+main > fieldset > .job-postings > .card > .features {
+    font-size: 1rem;
+    color: #9d9696;
+    background-color: #050505;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    text-align: left;
+    place-self: flex-start;
+}
+
+
+
 .job-title-glow {
     display: grid;
     place-items: center;

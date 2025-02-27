@@ -2,10 +2,14 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'style/careers.css' %}">
+{% endblock %}
+
 {% block content %}
     <fieldset>
         <legend>Careers</legend>
-        <div class="pricing">
+        <div class="job-postings">
             <div class="card">
                 <div class="card-header job-title-glow">Web Developer</div>
                 <div>Join us as a Python Web Developer! Work on building cutting-edge tools to help users unlock valuable insights from their data.</div>

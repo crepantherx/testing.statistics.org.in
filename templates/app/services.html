@@ -2,6 +2,10 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'style/services.css' %}">
+{% endblock %}
+
 {% block content %}
    <fieldset>
         <div style="text-align: center;width: 30vw;font-family: 'Inter', sans-serif; color: white;">
@@ -12,7 +16,7 @@
 
     <fieldset>
         <legend>Pricing</legend>
-        <div class="pricing">
+        <div class="service-tiers">
             <div class="card">
                 <div class="card-header price-tier-glow">small</div>
                 <div>starting at</div>

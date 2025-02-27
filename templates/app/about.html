@@ -2,6 +2,10 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'style/about.css' %}">
+{% endblock %}
+
 {% block content %}
 
     <fieldset>
@@ -21,11 +25,11 @@
         </div>
     </fieldset>
 
-    <a href="./careers.html">
+    <a href="{% url 'careers' %}">
         <button class="neomorphic-button">Join Us</button>
     </a>
 
-    <a href="pricing.html">
+    <a href="{% url 'services' %}">
         <button class="neomorphic-button">Our Services</button>
     </a>
 
