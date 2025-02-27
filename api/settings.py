@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "app"
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "cover.urls"
+ROOT_URLCONF = "api.urls"
 
 TEMPLATES = [
     {
@@ -68,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "cover.wsgi.app"
+WSGI_APPLICATION = "api.wsgi.app"
 
 
 # Database
@@ -123,9 +124,13 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = [BASE_DIR / "app/static"]
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATIC_URL = '/staticfiles/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static')]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 STATIC_URL = '/staticfiles/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
