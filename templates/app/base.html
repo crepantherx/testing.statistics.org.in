@@ -6,9 +6,11 @@
     <title>{% block title %}My Website{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style/style.css' %}">
+{#    <link rel="stylesheet" href="{% static 'style/legal.style' %}">#}
+{#    <link rel="stylesheet" href="{% static 'style/demo.style' %}">#}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/4f6fb2fa3c231278167b36e966718cbb?family=Uni+Sans+Heavy+Regular" rel="stylesheet">
-
+    {% block styles %}{% endblock %}
 </head>
 
 <body>
@@ -26,8 +28,8 @@
 
                 <nav class="side-panel" id="sidePanel">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="pricing.html">Services</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'services' %}">Services</a></li>
                         <li><a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a></li>
                     </ul>
                 </nav>
@@ -35,7 +37,7 @@
             <div style="color: white; font-size: 13px;">Menu</div>
             </div>
 
-            <a href="./index.html">Deep Statistics</a>
+            <a href="{% url 'home' %}">Deep Statistics</a>
 
             <div style="display: grid; font-family: 'Uni Sans Heavy Regular', sans-serif;">
 
@@ -48,8 +50,8 @@
 
                     <nav class="profile-panel" id="profilePanel">
                         <ul>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="login.html">Sign Up</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'login' %}">Sign Up</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -60,26 +62,26 @@
     </header>
 
     <main>
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
 
     <footer>
         <section>
-            <img src="../../static/images/icons/twitter.svg" alt="">
-            <img src="../../static/images/icons/facebook.svg" alt="">
-            <img src="../../static/images/icons/youtube.svg" alt="">
-            <img src="../../static/images/icons/insta.svg" alt="">
+            <img src="{% static 'images/icons/twitter.svg' %}" alt="">
+            <img src="{% static 'images/icons/facebook.svg' %}" alt="">
+            <img src="{% static 'images/icons/youtube.svg' %}" alt="">
+            <img src="{% static 'images/icons/insta.svg' %}" alt="">
         </section>
         <nav>
-            <a href="./about.html">About us</a>
-            <a href="./careers.html">Careers</a>
+            <a href="{% url 'about' %}">About us</a>
+            <a href="{% url 'careers' %}">Careers</a>
             <a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a>
-            <a href="./legal.html">Legal</a>
+            <a href="{% url 'legal' %}">Legal</a>
         </nav>
     </footer>
 
     <script src="{% static 'js/script.js' %}"></script>
+    {% block scripts %}{% endblock %}
 
 </body>
 </html>

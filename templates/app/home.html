@@ -1,5 +1,5 @@
 {% extends "app/base.html" %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
@@ -7,12 +7,12 @@
         <legend>Announcing</legend>
         <div class="page-1">
             <div class="hero">
-                <img src="../../static/images/art/hero.png" alt="">
+                <img src="{% static 'images/art/hero.png' %}" alt="">
                 <div class="service">Deep Statistics As A Service</div>
                 <div class="about">The fastest and most accurate data-driven insights tool across industries, offering statistically significant analysis, anomaly detection, and pattern recognition for both individuals and businesses data.</div>
                 <div class="powered-by-ai">Enhanced By Artificial Intelligence</div>
 
-                <a href="./how-it-works.html">
+                <a href="{% url 'demo' %}">
                     <button class="learn-more">Learn More</button>
                 </a>
 
@@ -20,3 +20,4 @@
         </div>
     </fieldset>
 {% endblock %}
+

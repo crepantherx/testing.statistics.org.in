@@ -296,20 +296,9 @@ main > fieldset >  .page-1 >.hero {
 }
 
 main > fieldset >  .page-1 > .hero img {
-    /*margin: 30px;*/
     width: 14vw; /* Makes the image fill the width of the div */
     height: auto; /* Maintains aspect ratio */
 }
-
-/*main > fieldset >  .page-1 > .hero > .intro {*/
-/*    margin-top: 4rem;*/
-/*    font-family: 'adl', cursive;*/
-/*    font-size: 0.9rem;*/
-/*    color: #969090;*/
-/*    !*background: linear-gradient(45deg, #555f53, #b0a5b6);*!*/
-/*    !*-webkit-background-clip: text;*!*/
-/*    !*-webkit-text-fill-color: transparent;*!*/
-/*}*/
 
 main > fieldset >  .page-1 > .hero > .service {
     /*margin-top: 4rem;*/
