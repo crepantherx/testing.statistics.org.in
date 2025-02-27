@@ -3,9 +3,31 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <fieldset>
-        <div style="font-size: 20px ;text-align: center;width: 30vw;font-family: 'Uni Sans Heavy Regular', sans-serif; color: white;">
-            Releasing Soon
+    <div class="login">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" class="custom-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <span class="error">{{ form.username.errors }}</span>
+            {% endif %}
         </div>
-    </fieldset>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <span class="error">{{ form.password.errors }}</span>
+            {% endif %}
+        </div>
+        <button type="submit" class="neomorphic-button">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
 {% endblock %}

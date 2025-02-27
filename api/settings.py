@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-tc^xhresn-grikz9-a33mjc7ve#2zdpz=w&nux*#^6tncj&=4q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'testing.statistics.org.in']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'testing.statistics.org.in', 'deep.statistics.org.in']
 
 # Application definition
 
@@ -133,3 +133,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = 'app.CustomUser'
+
+# Add these at the bottom
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
