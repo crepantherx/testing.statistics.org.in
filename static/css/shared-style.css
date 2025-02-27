@@ -241,9 +241,7 @@ fieldset {
     display: grid;
     grid-auto-flow: row;
     place-items: center;
-    place-content: center;
-
-
+    place-content: space-between;
 }
 legend {
     padding: 40px;
