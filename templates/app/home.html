@@ -1,0 +1,27 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'style/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <fieldset style="border-top: none;">
+        <legend>Announcing</legend>
+        <div class="page-1">
+            <div class="hero">
+                <img src="{% static 'images/art/hero.png' %}" alt="">
+                <div class="service">Deep Statistics As A Service</div>
+                <div class="about">The fastest and most accurate data-driven insights tool across industries, offering statistically significant analysis, anomaly detection, and pattern recognition for both individuals and businesses data.</div>
+                <div class="powered-by-ai">Enhanced By Artificial Intelligence</div>
+
+                <a href="{% url 'demo' %}">
+                    <button class="neomorphic-button">Learn More</button>
+                </a>
+
+            </div>
+        </div>
+    </fieldset>
+{% endblock %}
+

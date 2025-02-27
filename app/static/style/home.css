@@ -1,0 +1,99 @@
+
+main > fieldset > .page-1 {
+    display: grid;
+    grid-auto-flow: row;
+    /*gap: 3vh;*/
+    /*height: 85vh;*/
+
+}
+
+.powered-by-ai {
+    display: grid;
+    place-items: center;
+    font-family: 'adl', cursive;
+    padding: 10px;
+    color: white;
+    margin: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #37cf0c, #cec7d2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+
+main > fieldset >  .page-1 >.hero {
+
+    width: 30vw;
+    height: auto;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+    text-align: center;
+
+
+}
+
+main > fieldset >  .page-1 > .hero img {
+    width: 14vw; /* Makes the image fill the width of the div */
+    height: auto; /* Maintains aspect ratio */
+}
+
+main > fieldset >  .page-1 > .hero > .service {
+    /*margin-top: 4rem;*/
+    margin-top: 1rem;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+main > fieldset > .page-1 > .hero > .about {
+    margin: 1rem;
+
+
+    font-family: 'Inter', cursive;
+    font-size: 1rem;
+    color: #949191;
+}
+
+
+main > fieldset > .page-1 > .testimonials {
+
+    width: 30vw;
+    height: auto;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+    margin: 20px;
+}
+
+main > fieldset > .page-1 > .testimonials > .trusted-by-banner {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+    text-align: center;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    color: white;
+}
+
+main > fieldset > .page-1 > .testimonials > .client-banner {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+    text-align: center;
+    margin: 20px;
+
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+main > fieldset >  .page-1 > .testimonials > .client-banner > img {
+    width: 60px;
+    height: auto;
+}

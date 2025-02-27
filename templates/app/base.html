@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/4f6fb2fa3c231278167b36e966718cbb?family=Uni+Sans+Heavy+Regular" rel="stylesheet">
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div style="display: grid; font-family: 'Uni Sans Heavy Regular', sans-serif;">
+                <div class="menu">
+                    <button class="hamburger" id="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </button>
+                    <nav class="side-panel" id="sidePanel">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'services' %}">Services</a></li>
+                            <li><a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div style="color: white; font-size: 13px;">Menu</div>
+            </div>
+
+            <a href="{% url 'home' %}">Deep Statistics</a>
+
+            <div style="display: grid; font-family: 'Uni Sans Heavy Regular', sans-serif;">
+
+                <div class="navbar">
+                    <button class="profile-container" id="profile-hamburger">
+                        <svg class="profile-icon" viewBox="0 0 24 24">
+                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
+                        </svg>
+                    </button>
+
+                    <nav class="profile-panel" id="profilePanel">
+                        <ul>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'login' %}">Sign Up</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div style="color: white; font-size: 13px;">Profile</div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <section>
+            <img src="{% static 'images/icons/twitter.svg' %}" alt="">
+            <img src="{% static 'images/icons/facebook.svg' %}" alt="">
+            <img src="{% static 'images/icons/youtube.svg' %}" alt="">
+            <img src="{% static 'images/icons/insta.svg' %}" alt="">
+        </section>
+        <nav>
+            <a href="{% url 'about' %}">About us</a>
+            <a href="{% url 'careers' %}">Careers</a>
+            <a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a>
+            <a href="{% url 'legal' %}">Legal</a>
+        </nav>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

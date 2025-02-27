@@ -1,0 +1,39 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'style/careers.css' %}">
+{% endblock %}
+
+{% block content %}
+    <fieldset>
+        <legend>Careers</legend>
+        <div class="job-postings">
+            <div class="card">
+                <div class="card-header job-title-glow">Web Developer</div>
+                <div>Join us as a Python Web Developer! Work on building cutting-edge tools to help users unlock valuable insights from their data.</div>
+                <button class="talk-to-us" onclick="window.location.href='mailto:hiring@statistics.org.in?subject=Job%20Application%20-%20Web%20Developer'">Apply Now</button>
+            </div>
+            <div class="card">
+                <div class="card-header job-title-glow">Data Engineer</div>
+                <div>We are looking for a passionate Data Engineer to join our team. You will work on realtime data.</div>
+                <button class="talk-to-us" onclick="window.location.href='mailto:hiring@statistics.org.in?subject=Job%20Application%20-%20Data%20Engineer'">Apply Now</button>
+
+            </div>
+            <div class="card">
+                <div class="card-header job-title-glow">Data Scientist</div>
+                <div>We are looking for a passionate Data Scientist to join our team. You will work on advanced statistical analysis and model building.</div>
+                <button class="talk-to-us" onclick="window.location.href='mailto:hiring@statistics.org.in?subject=Job%20Application%20-%20Data%20Scientist'">Apply Now</button>
+
+            </div>
+            <div class="card">
+                <div class="card-header job-title-glow">Web Designer</div>
+                <div>Join us as a Web Designer! Work on building beautiful, responsive websites for our users to enjoy.</div>
+                <button class="talk-to-us" onclick="window.location.href='mailto:hiring@statistics.org.in?subject=Job%20Application%20-%20Web%20Designer'">Apply Now</button>
+
+            </div>
+        </div>
+    </fieldset>
+
+{% endblock %}

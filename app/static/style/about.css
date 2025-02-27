@@ -1,0 +1,15 @@
+main > fieldset > .about-us {
+    margin: 30px;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    place-self: center;
+
+    grid-auto-flow: row;
+    gap: 40px;
+
+    color: white;
+    font-family: 'Inter', cursive;
+    /*height: 85vh;*/
+    width: 30vw;
+}
