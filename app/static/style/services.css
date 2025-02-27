@@ -1,0 +1,12 @@
+.price-tier-glow {
+    display: grid;
+    place-items: center;
+    font-family: 'adl', cursive;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #95cfa7, #0c743e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}

@@ -32,20 +32,16 @@
     display: none;
 }
 
-
-
-/* Ensure scrolling still works */
 body {
     overflow: auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     display: grid;
     place-items: center;
     place-content: center;
     background-color: #050505;
-    /*overflow-x: hidden;*/
-    grid-template-rows: auto 1fr auto; /* Header (auto), Main (flexible), Footer (auto) */
-    min-height: 100vh; /* Ensures full viewport height */
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 body > header,
@@ -57,7 +53,7 @@ body > footer {
 header {
     background-color: #050505;
     text-align: center;
-    width: 100%; /* Ensure the header spans full width of viewport */
+    width: 100%;
     display: grid;
     gap: 15px;
     font-family: 'Inter', sans-serif;
@@ -89,7 +85,6 @@ header > nav > a {
     background: none;
     border: none;
     cursor: pointer;
-    /*padding: 10px;*/
 }
 
 .hamburger .line {
@@ -101,7 +96,6 @@ header > nav > a {
     transition: all 0.3s ease;
 }
 
-/* Side Panel Styles with Border */
 .side-panel {
     position: fixed;
     left: 0;
@@ -114,7 +108,7 @@ header > nav > a {
     border: 1px solid #252424;
     z-index: 99;
     padding: 60px 20px 20px;
-    box-sizing: border-box; /* Important for border inclusion */
+    box-sizing: border-box;
 }
 
 .profile-panel {
@@ -129,10 +123,9 @@ header > nav > a {
     border: 1px solid #252424;
     z-index: 99;
     padding: 60px 20px 20px;
-    box-sizing: border-box; /* Important for border inclusion */
+    box-sizing: border-box;
 }
 
-/* Active States */
 .side-panel.active {
     transform: translateX(0);
 }
@@ -231,143 +224,8 @@ main > div {
     color: white;
 }
 
-main > fieldset > .page-1 {
-    display: grid;
-    grid-auto-flow: row;
-    /*gap: 3vh;*/
-    /*height: 85vh;*/
-
-}
-
-.powered-by-ai {
-    display: grid;
-    place-items: center;
-    font-family: 'adl', cursive;
-    padding: 10px;
-    color: white;
-    margin: 20px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    background: linear-gradient(45deg, #37cf0c, #cec7d2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-}
-
-.text-glow {
-    display: grid;
-    place-items: center;
-    font-family: 'adl', cursive;
-    color: white;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    background: linear-gradient(45deg, #c8d6c0, #948cbd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-}
 
 
-.tier-glow {
-    display: grid;
-    place-items: center;
-    font-family: 'adl', cursive;
-    color: white;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    background: linear-gradient(45deg, #95cfa7, #0c743e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-}
-
-
-main > fieldset >  .page-1 >.hero {
-
-    width: 30vw;
-    height: auto;
-    display: grid;
-    place-items: center;
-    place-content: center;
-    place-self: center;
-    text-align: center;
-
-
-}
-
-main > fieldset >  .page-1 > .hero img {
-    width: 14vw; /* Makes the image fill the width of the div */
-    height: auto; /* Maintains aspect ratio */
-}
-
-main > fieldset >  .page-1 > .hero > .service {
-    /*margin-top: 4rem;*/
-    margin-top: 1rem;
-    font-family: 'Uni Sans Heavy Regular', cursive;
-    font-size: 1.5rem;
-    color: #ffffff;
-}
-
-main > fieldset > .page-1 > .hero > .about {
-    margin: 1rem;
-
-
-    font-family: 'Inter', cursive;
-    font-size: 1rem;
-    color: #949191;
-}
-.learn-more {
-    font-size: 1rem;
-    color: white;
-    background-color: #050505;
-    font-family: 'Uni Sans Heavy Regular', cursive;
-    padding: 10px 30px 10px 30px;
-    margin: 1em;
-    border-radius: 50px;
-    box-shadow:
-            4px 4px 12px rgba(50, 44, 44, 0.78),
-            -4px -4px 12px rgba(221, 220, 220, 0.37);
-}
-
-
-
-main > fieldset > .page-1 > .testimonials {
-
-    width: 30vw;
-    height: auto;
-    display: grid;
-    place-items: center;
-    place-content: center;
-    place-self: center;
-    margin: 20px;
-}
-
-main > fieldset > .page-1 > .testimonials > .trusted-by-banner {
-    display: grid;
-    place-items: center;
-    place-content: center;
-    place-self: center;
-    text-align: center;
-    font-family: 'Uni Sans Heavy Regular', cursive;
-    color: white;
-}
-
-main > fieldset > .page-1 > .testimonials > .client-banner {
-    display: grid;
-    place-items: center;
-    place-content: center;
-    place-self: center;
-    text-align: center;
-    margin: 20px;
-
-    grid-auto-flow: column;
-    gap: 20px;
-}
-
-main > fieldset >  .page-1 > .testimonials > .client-banner > img {
-    width: 60px;
-    height: auto;
-}
 
 fieldset {
     border-top: 1px solid #252424;
@@ -514,3 +372,20 @@ footer > nav > a {
     color: #a4a4a4;
 }
 
+
+
+
+/*utilities*/
+
+.neomorphic-button {
+    font-size: 1rem;
+    color: white;
+    background-color: #050505;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    padding: 10px 30px 10px 30px;
+    margin: 1em;
+    border-radius: 50px;
+    box-shadow:
+            4px 4px 12px rgba(50, 44, 44, 0.78),
+            -4px -4px 12px rgba(221, 220, 220, 0.37);
+}

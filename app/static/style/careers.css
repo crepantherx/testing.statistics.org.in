@@ -1,0 +1,12 @@
+.job-title-glow {
+    display: grid;
+    place-items: center;
+    font-family: 'adl', cursive;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #c8d6c0, #948cbd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
