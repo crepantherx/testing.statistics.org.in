@@ -2,9 +2,11 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
-{#{% block styles %}#}
-{#    <link rel="stylesheet" href="{% static 'css/home.css' %}">#}
-{#{% endblock %}#}
+{% block styles %}
+    <link rel="preload" href="{% static 'images/art/brand.png' %}" as="image">
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block content %}
         <div id="layout" style="background-image: url('{% static 'images/art/brand.png' %}');background-size: contain;background-repeat: no-repeat;">
