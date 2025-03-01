@@ -54,3 +54,6 @@ def legal(request):
 
 def demo(request):
     return render(request, 'app/demo.html')
+
+def pricing(request):
+    return render(request, 'app/pricing.html')

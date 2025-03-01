@@ -7,36 +7,40 @@
 {#{% endblock %}#}
 
 {% block content %}
+            <div id="layout">
+        <div id="head">Services</div>
+        <div id="tail">
 
     <fieldset>
-        <legend>Services</legend>
         <div class="service-tiers">
-            <div class="card item1">
-                <div class="card-header price-tier-glow">Deep Data Understanding</div>
-                <div>As A Service</div>
-                <div class="service-explain"><br>See best suited highly crafted visualizations(out of 10,000 visualizations), detailed breakdown of each column of your dataset.</div>
-            </div>
-            <div class="card item2">
-                <div class="card-header price-tier-glow">Anomaly & Pattern Discovery Report</div>
-                <div>As A Service</div>
-                <div class="service-explain"><br>Shows you detect every small anomaly or pattern within your dataset, and any relation of those anomaly with any pattern
-
-</div>
-            </div>
-                        <div class="card item3">
-                <div class="card-header price-tier-glow">
-                    <br>Natual Language Based Automatic Dashboard Creation
-
+            <a href="{% url 'pricing' %}">
+                <div class="services-card item1">
+                    <div class="card-header">Deep Data Understanding</div>
+                    <div>As A Service</div>
+                    <div class="service-explain"><br>See best suited highly crafted visualizations(out of 10,000 visualizations), detailed breakdown of each column of your dataset.</div>
                 </div>
-                            <div>
-                                As A Service
-                            </div>
-                                            <div class="service-explain"><br>Ask questions about your dataset in natural language or speak
+            </a>
 
+            <a href="{% url 'pricing' %}">
+                <div class="services-card item2">
+                    <div class="card-header">Anomaly & Pattern Discovery Report</div>
+                    <div>As A Service</div>
+                    <div class="service-explain"><br>Shows you detect every small anomaly or pattern within your dataset, and any relation of those anomaly with any pattern </div>
+                </div>
+            </a>
 
-</div>
+            <a href="{% url 'pricing' %}">
+                <div class="services-card item2">
+                    <div class="card-header">Natural Language Based Insights</div>
+                    <div>As A Service</div>
+                    <div class="service-explain"><br>Ask questions about your dataset in natural language or speak, & find every related visualization backing up decision.</div>
+                </div>
+            </a>
+
 
             </div>
-        </div>
+
+
     </fieldset>
+            </div></div>
 {% endblock %}

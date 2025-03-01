@@ -7,15 +7,12 @@
 {#{% endblock %}#}
 
 {% block content %}
-   <fieldset>
-        <div style="text-align: center;width: 30vw;font-family: 'Inter', sans-serif; color: white;">
-            We provide <br>
-            Deep Statistical Analysis As A service of business data, and enable business to query question related to their data written in natural language, and find out every possible visual to answer that question along with answers statistical significance
-        </div>
-    </fieldset>
 
-    <fieldset>
-        <legend>Pricing</legend>
+    <div id="layout">
+        <div id="head">Pricing</div>
+        <div id="tail">
+            <fieldset>
+{#        <legend>Pricing</legend>#}
         <div class="service-tiers">
             <div class="card">
                 <div class="card-header price-tier-glow">small</div>
@@ -56,5 +53,8 @@
                 </ul>
             </div>
         </div>
-    </fieldset>
+    </fieldset></div>
+    </div>
+
+
 {% endblock %}

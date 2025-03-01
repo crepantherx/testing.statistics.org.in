@@ -8,6 +8,10 @@
 
 {% block content %}
 
+            <div id="layout">
+        <div id="head">Demo</div>
+        <div id="tail">
+
     <fieldset>
         <legend>Stage 1: Develop full understanding of your data</legend>
         <div class="steps">
@@ -69,13 +73,16 @@
                     <img src="{% static 'images/demo/pval.png' %}" style="background: black; margin: 10px;" alt="">
                 </div>
             </div>
-        </div>
+
 
     </fieldset>
 
     <a href="{% url 'demo' %}">
         <button class="neomorphic-button">Demo - Coming Soon</button>
     </a>
+
+            </div>
+    </div>
 
 {% endblock %}
 

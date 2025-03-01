@@ -1,4 +1,4 @@
-main > fieldset > .about-us {
+.about-us {
     margin: 30px;
     display: grid;
     place-items: center;

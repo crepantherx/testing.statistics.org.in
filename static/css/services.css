@@ -1,48 +1,39 @@
-main > fieldset > .service-tiers {
-    display: grid;
-    gap: 40px; /* Space between books */
-    /*max-width: 1200px;*/
-    flex-direction: row;
-    grid-template-columns: 1fr 1fr; /* First row: Two equal columns */
-    grid-template-rows: auto auto;  /* Two rows */
-    place-content: stretch;
-    place-items: stretch;
-    place-self: center;
-
+.service-tiers {
+    display: flex;
+    gap: 40px;
 
 }
 
-.item3 {
-    background: lightgreen;
-    grid-column: 1 / span 2; /* Make it span both columns */
-    width: 65vw;
-
+.service-tiers a {
+    text-decoration: none;
+    flex: 1;
 }
+
 
 
 .service-explain {
     color: #444647;
 }
 
-.card:hover .service-explain{
+.services-card:hover .service-explain{
     color: #ffffff;
 }
 
-.card {
-
+.services-card {
+    /*width: 50vw;*/
     display: grid;
     place-self: center;
     text-align: center;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: #929292;
-    padding: 50px;
+    padding: 40px;
     border-radius: 50px;
     /*width: 50vw;*/
-    /*height: 20vh;*/
+    height: 20vh;
     gap: 5px;
     position: relative;
-    place-content: center;
-    place-items: center;
+    place-content: space-between;
+    place-items: center stretch;
 
     color: white;
     background-color: #050505;
@@ -57,9 +48,10 @@ main > fieldset > .service-tiers {
     border-top: 1px solid white;
     border-left: 1px solid white;
 
+
 }
 
-/*.card:hover {*/
+/*.services-card:hover {*/
 /*    background: rgb(255, 255, 255);*/
 /*}*/
 
@@ -68,7 +60,7 @@ main > fieldset > .service-tiers {
 
 /*}*/
 
-.card:active {
+.services-card:active {
 
     border-bottom: 1px solid white;
     border-right: 1px solid white;
@@ -81,19 +73,19 @@ main > fieldset > .service-tiers {
 }
 
 
-.card > .card-header {
+.services-card > .card-header {
     font-size: 1.2em;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-.card > .card-price {
+.services-card > .services-card-price {
     font-size: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-.card > .talk-to-us {
+.services-card > .talk-to-us {
     font-size: 0.8rem;
     color: white;
     background-color: #050505;
@@ -103,27 +95,4 @@ main > fieldset > .service-tiers {
     box-shadow:
             4px 4px 12px rgba(50, 44, 44, 0.78),
             -4px -4px 12px rgba(221, 220, 220, 0.37);
-}
-
-.card > .features {
-    font-size: 1rem;
-    color: #9d9696;
-    background-color: #050505;
-    font-family: 'Uni Sans Heavy Regular', cursive;
-    text-align: left;
-    place-self: flex-start;
-}
-
-
-.price-tier-glow {
-    display: grid;
-    place-items: center;
-    font-family: 'adl', cursive;
-    color: white;
-    font-size: 16px;
-    letter-spacing: 1px;
-    background: linear-gradient(45deg, #95cfa7, #0c743e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
 }

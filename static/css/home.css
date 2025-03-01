@@ -1,5 +1,5 @@
 
-main > fieldset > .page-1 {
+.page-1 {
     display: grid;
     grid-auto-flow: row;
     /*gap: 3vh;*/
@@ -14,9 +14,9 @@ main > fieldset > .page-1 {
     padding: 10px;
     color: white;
     margin: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
-    background: linear-gradient(45deg, #37cf0c, #cec7d2);
+    background: linear-gradient(45deg, #6db4e6, #ac9bb2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -24,7 +24,7 @@ main > fieldset > .page-1 {
 
 
 
-main > fieldset >  .page-1 >.hero {
+.page-1 >.hero {
 
     width: 30vw;
     height: auto;
@@ -37,21 +37,25 @@ main > fieldset >  .page-1 >.hero {
 
 }
 
-main > fieldset >  .page-1 > .hero img {
+.page-1 > .hero img {
     width: 14vw; /* Makes the image fill the width of the div */
     height: auto; /* Maintains aspect ratio */
 }
 
-main > fieldset >  .page-1 > .hero > .service {
+.page-1 > .hero > .service {
     /*margin-top: 4rem;*/
     margin-top: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
     font-size: 1.5rem;
     color: #ffffff;
     /*letter-spacing: 1px;*/
+    /*    background: linear-gradient(45deg, #6de681, #ac9bb2);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+
 }
 
-main > fieldset > .page-1 > .hero > .about {
+.page-1 > .hero > .about {
     margin: 1rem;
 
 
@@ -61,7 +65,7 @@ main > fieldset > .page-1 > .hero > .about {
 }
 
 
-main > fieldset > .page-1 > .testimonials {
+.page-1 > .testimonials {
 
     width: 30vw;
     height: auto;
@@ -72,7 +76,7 @@ main > fieldset > .page-1 > .testimonials {
     margin: 20px;
 }
 
-main > fieldset > .page-1 > .testimonials > .trusted-by-banner {
+.page-1 > .testimonials > .trusted-by-banner {
     display: grid;
     place-items: center;
     place-content: center;
@@ -82,7 +86,7 @@ main > fieldset > .page-1 > .testimonials > .trusted-by-banner {
     color: white;
 }
 
-main > fieldset > .page-1 > .testimonials > .client-banner {
+.page-1 > .testimonials > .client-banner {
     display: grid;
     place-items: center;
     place-content: center;
@@ -94,7 +98,7 @@ main > fieldset > .page-1 > .testimonials > .client-banner {
     gap: 20px;
 }
 
-main > fieldset >  .page-1 > .testimonials > .client-banner > img {
+.page-1 > .testimonials > .client-banner > img {
     width: 60px;
     height: auto;
 }

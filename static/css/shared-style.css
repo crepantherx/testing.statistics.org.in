@@ -226,6 +226,27 @@ main > div {
 }
 
 
+#layout {
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center;
+    place-content: flex-start;
+    /*height: 100vh;*/
+    min-height: 80vh;
+    place-self: center;
+}
+
+#layout > #head {
+        padding: 40px;
+    font-weight: bold;
+    color: white;
+    font-family: 'adl', cursive;
+    text-align: center;
+}
+
+#tail {
+    place-items: center;
+}
 
 
 fieldset {

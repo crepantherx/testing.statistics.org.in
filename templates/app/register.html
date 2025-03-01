@@ -3,6 +3,9 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+            <div id="layout">
+        <div id="head">Signup</div>
+        <div id="tail">
     <div class="register">
 
     {% if messages %}
@@ -45,4 +48,5 @@
     <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 
     </div>
+        </div></div>
 {% endblock %}
