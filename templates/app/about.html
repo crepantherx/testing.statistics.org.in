@@ -8,8 +8,11 @@
 
 {% block content %}
 
+            <div id="layout">
+        <div id="head">About us</div>
+        <div id="tail">
     <fieldset>
-        <legend>About us</legend>
+
         <div class="about-us">
             <div>
                 At Deep Statistics, we help businesses <br>unlock their full potential by identifying and addressing profit & loss patterns based on your data before they impact your business.
@@ -25,12 +28,15 @@
         </div>
     </fieldset>
 
+
     <a href="{% url 'careers' %}">
         <button class="neomorphic-button">Join Us</button>
     </a>
-
-    <a href="{% url 'services' %}">
-        <button class="neomorphic-button">Our Services</button>
-    </a>
+{##}
+{#    <a href="{% url 'services' %}">#}
+{#        <button class="neomorphic-button">Our Services</button>#}
+{#    </a>#}
+        </div>
+            </div>
 
 {% endblock %}

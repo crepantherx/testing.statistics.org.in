@@ -1,12 +1,13 @@
-.job-postings {
+.service-tiers {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Space between books */
     justify-content: center;
-    /*max-width: 1500px;*/
+    max-width: 1100px;
 }
 
-.job-postings > .card {
+
+.service-tiers > .card {
     display: grid;
     place-items: center;
     place-content: center;
@@ -20,28 +21,25 @@
     box-shadow: 0px 0px 120px rgba(80, 82, 91, 0.44);
     border-radius: 50px;
 
-    width: 170px; /* Width of the book */
-    height: 30vh;
+    width: 180px; /* Width of the book */
     /*height: 200px; !* Height of the book *!*/
     position: relative;
-    place-content: space-between;
-    place-items: center;
 }
 
 
-.job-postings > .card > .card-header {
+.service-tiers > .card > .card-header {
     font-size: 1.5rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-.job-postings > .card > .card-price {
+.service-tiers > .card > .card-price {
     font-size: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-.job-postings > .card > .talk-to-us {
+.service-tiers > .card > .talk-to-us {
     font-size: 0.8rem;
     color: white;
     background-color: #050505;
@@ -53,7 +51,7 @@
             -4px -4px 12px rgba(221, 220, 220, 0.37);
 }
 
-.job-postings > .card > .features {
+.service-tiers > .card > .features {
     font-size: 1rem;
     color: #9d9696;
     background-color: #050505;
@@ -63,15 +61,14 @@
 }
 
 
-
-.job-title-glow {
+.price-tier-glow {
     display: grid;
     place-items: center;
     font-family: 'adl', cursive;
     color: white;
     font-size: 0.8rem;
     letter-spacing: 1px;
-    background: linear-gradient(45deg, #c8d6c0, #948cbd);
+    background: linear-gradient(45deg, #95cfa7, #0c743e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
