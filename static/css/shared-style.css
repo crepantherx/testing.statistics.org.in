@@ -72,6 +72,7 @@ header > nav {
     font-family: 'Tourney', sans-serif;
     border-bottom: 1px solid #252424;
 
+
 }
 
 header > nav > a {
@@ -242,6 +243,7 @@ fieldset {
     grid-auto-flow: row;
     place-items: center;
     place-content: center;
+
 }
 legend {
     padding: 40px;
@@ -285,7 +287,7 @@ footer > nav {
     place-items: center;
     place-self: center;
     place-content: space-evenly;
-    padding: 20px;
+    padding: 10px;
     font-family: 'Uni Sans Heavy Regular', cursive;
 }
 footer > nav > a {
@@ -305,7 +307,7 @@ footer > nav > a {
     background-color: #050505;
     font-family: 'Uni Sans Heavy Regular', cursive;
     padding: 10px 30px 10px 30px;
-    margin: 1em;
+    margin: 2em;
     border-radius: 50px;
     box-shadow:
             4px 4px 12px rgba(50, 44, 44, 0.78),

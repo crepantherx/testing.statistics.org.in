@@ -77,15 +77,21 @@
     </main>
 
     <footer>
-        <section>
+{#        <section>#}
+{#            <img src="{% static 'images/icons/twitter.svg' %}" alt="">#}
+{#            <img src="{% static 'images/icons/facebook.svg' %}" alt="">#}
+{#            <img src="{% static 'images/icons/youtube.svg' %}" alt="">#}
+{#            <img src="{% static 'images/icons/insta.svg' %}" alt="">#}
+{#        </section>#}
+        <nav>
+            <a href="{% url 'about' %}">About us</a>
+            <a href="{% url 'careers' %}">Careers</a>
+                    <section>
             <img src="{% static 'images/icons/twitter.svg' %}" alt="">
             <img src="{% static 'images/icons/facebook.svg' %}" alt="">
             <img src="{% static 'images/icons/youtube.svg' %}" alt="">
             <img src="{% static 'images/icons/insta.svg' %}" alt="">
         </section>
-        <nav>
-            <a href="{% url 'about' %}">About us</a>
-            <a href="{% url 'careers' %}">Careers</a>
             <a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a>
             <a href="{% url 'legal' %}">Legal</a>
         </nav>

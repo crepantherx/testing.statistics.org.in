@@ -1,45 +1,99 @@
 main > fieldset > .service-tiers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between books */
-    justify-content: center;
-    max-width: 1100px;
+    display: grid;
+    gap: 40px; /* Space between books */
+    /*max-width: 1200px;*/
+    flex-direction: row;
+    grid-template-columns: 1fr 1fr; /* First row: Two equal columns */
+    grid-template-rows: auto auto;  /* Two rows */
+    place-content: stretch;
+    place-items: stretch;
+    place-self: center;
+
+
+}
+
+.item3 {
+    background: lightgreen;
+    grid-column: 1 / span 2; /* Make it span both columns */
+    width: 65vw;
+
 }
 
 
-main > fieldset > .service-tiers > .card {
+.service-explain {
+    color: #444647;
+}
+
+.card:hover .service-explain{
+    color: #ffffff;
+}
+
+.card {
+
     display: grid;
-    place-items: center;
-    place-content: center;
     place-self: center;
     text-align: center;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: #929292;
-    /*border: 1px solid #252424;*/
-    gap: 15px;
     padding: 50px;
-    box-shadow: 0px 0px 120px rgba(80, 82, 91, 0.44);
     border-radius: 50px;
-
-    width: 180px; /* Width of the book */
-    /*height: 200px; !* Height of the book *!*/
+    /*width: 50vw;*/
+    /*height: 20vh;*/
+    gap: 5px;
     position: relative;
+    place-content: center;
+    place-items: center;
+
+    color: white;
+    background-color: #050505;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+
+
+
+
+        box-shadow:
+            4px 4px 12px #252424,
+            -4px -4px 12px #252424;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+
+}
+
+/*.card:hover {*/
+/*    background: rgb(255, 255, 255);*/
+/*}*/
+
+/*.card-header:hover {*/
+/*    color: black;*/
+
+/*}*/
+
+.card:active {
+
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    border-top: none;
+    border-left: none;
+    box-shadow:
+        inset 4px 4px 8px rgba(30, 29, 29, 0.78),
+        inset -4px -4px 12px rgba(30, 29, 29, 0.78);
+
 }
 
 
-main > fieldset > .service-tiers > .card > .card-header {
-    font-size: 1.5rem;
+.card > .card-header {
+    font-size: 1.2em;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-main > fieldset > .service-tiers > .card > .card-price {
+.card > .card-price {
     font-size: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: white;
 }
 
-main > fieldset > .service-tiers > .card > .talk-to-us {
+.card > .talk-to-us {
     font-size: 0.8rem;
     color: white;
     background-color: #050505;
@@ -51,7 +105,7 @@ main > fieldset > .service-tiers > .card > .talk-to-us {
             -4px -4px 12px rgba(221, 220, 220, 0.37);
 }
 
-main > fieldset > .service-tiers > .card > .features {
+.card > .features {
     font-size: 1rem;
     color: #9d9696;
     background-color: #050505;
@@ -66,7 +120,7 @@ main > fieldset > .service-tiers > .card > .features {
     place-items: center;
     font-family: 'adl', cursive;
     color: white;
-    font-size: 0.8rem;
+    font-size: 16px;
     letter-spacing: 1px;
     background: linear-gradient(45deg, #95cfa7, #0c743e);
     -webkit-background-clip: text;

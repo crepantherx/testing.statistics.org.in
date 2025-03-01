@@ -13,7 +13,7 @@ main > fieldset > .page-1 {
     font-family: 'adl', cursive;
     padding: 10px;
     color: white;
-    margin: 20px;
+    margin: 10px;
     font-size: 0.8rem;
     letter-spacing: 2px;
     background: linear-gradient(45deg, #37cf0c, #cec7d2);
@@ -48,6 +48,7 @@ main > fieldset >  .page-1 > .hero > .service {
     font-family: 'Uni Sans Heavy Regular', cursive;
     font-size: 1.5rem;
     color: #ffffff;
+    /*letter-spacing: 1px;*/
 }
 
 main > fieldset > .page-1 > .hero > .about {
