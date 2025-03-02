@@ -361,6 +361,20 @@ body > footer {
 
 }
 
+    footer > nav {
+    border-top: 1px solid #252424;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    place-self: center;
+    place-content: space-evenly;
+    padding: 10px;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+}
+
+
+
 }
 
 header > nav > div {
