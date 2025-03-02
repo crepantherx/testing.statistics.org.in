@@ -356,7 +356,7 @@ footer > nav > a {
 body > header,
 body > main,
 body > footer {
-    width: auto;
+    width: 100%;
 }
 
     header > nav {
