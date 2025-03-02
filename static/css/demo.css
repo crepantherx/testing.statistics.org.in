@@ -9,13 +9,13 @@
 }
 
 .demo {
-    text-align: left;
+    text-align: center;
     font-family: 'Inter', sans-serif;
     color: white;
     display: grid;
     grid-auto-flow: row;
     place-items: center;
-    margin: 5px;
+    /*margin: 5px;*/
 }
 
 .demo > img {
