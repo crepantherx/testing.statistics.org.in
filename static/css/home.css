@@ -16,7 +16,7 @@
     margin: 10px;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    background: linear-gradient(45deg, #6db4e6, #ac9bb2);
+    background: linear-gradient(45deg, #0c69b6, #e10000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -26,7 +26,7 @@
 
 .page-1 >.hero {
 
-    width: 30vw;
+    width: 45vh;
     height: auto;
     display: grid;
     place-items: center;
@@ -38,15 +38,15 @@
 }
 
 .page-1 > .hero img {
-    width: 14vw; /* Makes the image fill the width of the div */
-    height: auto; /* Maintains aspect ratio */
+    width:  auto;/* Makes the image fill the width of the div */
+    height: 20vh; /* Maintains aspect ratio */
 }
 
 .page-1 > .hero > .service {
     /*margin-top: 4rem;*/
     margin-top: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
-    font-size: 1.5rem;
+    font-size: 2.2vh;
     color: #ffffff;
     /*letter-spacing: 1px;*/
     /*    background: linear-gradient(45deg, #6de681, #ac9bb2);*/

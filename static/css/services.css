@@ -16,38 +16,30 @@
     color: #444647;
 }
 
-.services-card:hover .service-explain{
+.service-explain{
     color: #ffffff;
+    font-family: Inter, sans-serif;
 }
 
 .services-card {
-    /*width: 50vw;*/
     display: grid;
+    place-items: center;
+    place-content: center;
     place-self: center;
     text-align: center;
     font-family: 'Uni Sans Heavy Regular', cursive;
     color: #929292;
-    padding: 40px;
+    /*border: 1px solid #252424;*/
+    gap: 15px;
+    padding: 50px;
+    box-shadow: 0px 0px 120px rgba(80, 82, 91, 0.44);
     border-radius: 50px;
-    /*width: 50vw;*/
-    /*height: 20vh;*/
-    gap: 5px;
+
+    width: 90%;
+    /*height: 200px; !* Height of the book *!*/
     position: relative;
     place-content: center;
     place-items: center;
-
-    color: white;
-    background-color: #050505;
-    font-family: 'Uni Sans Heavy Regular', cursive;
-
-    width: 100%;
-
-
-        box-shadow:
-            4px 4px 12px #252424,
-            -4px -4px 12px #252424;
-    border-top: 1px solid white;
-    border-left: 1px solid white;
 
 
 }
@@ -61,17 +53,17 @@
 
 /*}*/
 
-.services-card:active {
+/*.services-card:active {*/
 
-    border-bottom: 1px solid white;
-    border-right: 1px solid white;
-    border-top: none;
-    border-left: none;
-    box-shadow:
-        inset 4px 4px 8px rgba(30, 29, 29, 0.78),
-        inset -4px -4px 12px rgba(30, 29, 29, 0.78);
+/*    border-bottom: 1px solid white;*/
+/*    border-right: 1px solid white;*/
+/*    border-top: none;*/
+/*    border-left: none;*/
+/*    box-shadow:*/
+/*        inset 4px 4px 8px rgba(30, 29, 29, 0.78),*/
+/*        inset -4px -4px 12px rgba(30, 29, 29, 0.78);*/
 
-}
+/*}*/
 
 
 .services-card > .card-header {
@@ -96,4 +88,41 @@
     box-shadow:
             4px 4px 12px rgba(50, 44, 44, 0.78),
             -4px -4px 12px rgba(221, 220, 220, 0.37);
+}
+
+.button-neomorphic {
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    background-color: #000000;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    padding: 10px 30px 10px 30px;
+    margin: 2em;
+    border-radius: 50px;
+    box-shadow:
+            4px 4px 12px rgba(50, 44, 44, 0.78),
+            -4px -4px 12px rgba(221, 220, 220, 0.37);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.button-neomorphic:active {
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    background-color: #000000;
+    font-family: 'Uni Sans Heavy Regular', cursive;
+    padding: 10px 30px 10px 30px;
+    margin: 2em;
+    border-radius: 50px;
+    box-shadow:
+            4px 4px 12px rgba(50, 44, 44, 0.78),
+            -4px -4px 12px rgba(221, 220, 220, 0.37);
+
+        border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
 }
