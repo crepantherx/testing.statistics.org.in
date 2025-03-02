@@ -110,7 +110,7 @@ header > nav > a {
     z-index: 99;
     padding: 60px 20px 20px;
     box-sizing: border-box;
-    display: none
+    /*display: none*/
 
 }
 
@@ -127,17 +127,17 @@ header > nav > a {
     z-index: 99;
     padding: 60px 20px 20px;
     box-sizing: border-box;
-    display: none;
+    /*display: none;*/
 }
 
 .side-panel.active {
     transform: translateX(0);
-    display: grid;
+    /*display: grid;*/
 }
 
 .profile-panel.active {
     transform: translateX(0);
-    display: grid;
+    /*display: grid;*/
 }
 
 .hamburger.active .line:nth-child(1) {
