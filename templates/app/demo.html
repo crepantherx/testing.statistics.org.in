@@ -8,85 +8,64 @@
 {% endblock %}
 
 {% block content %}
-            <div id="layout">
+    <div id="layout">
         <div id="head">Demo</div>
         <div id="tail">
 
-    <fieldset>
-        <legend class="demo-head">Stage 1: Develop full understanding of your data</legend>
-        <div class="steps">
-            <div class='demo' >
-                1. Upload your dataset or connect your data source
-{#                <img src="{% static 'images/demo/upload.png' %}" alt="">#}
-                <br>
+                    <canvas id="spiralChart"></canvas>
 
+            <a href="{% url 'demo' %}">
+            <button class="neomorphic-button">Interactive Demo - Coming Soon</button>
+        </a>
+
+            <div class="demo-tutorial">
+                <details>
+                    <summary>Stage 1: We make sure that your data is easily understandable to you by effective visualization</summary>
+                    <ol>
+                        <li>Upload your dataset or connect your data source</li>
+                        <li>
+                            (Understand your data) See best suited highly crafted visualizations(out of 10,000 visualizations), detailed breakdown of each column of your dataset.
+
+                            <div>
+                                <h4>Global Temperature Change (1850–2024)</h4><br>
+                    <div class="graphs">
+                        <img src="{% static 'images/demo/America+homeless+transport.png' %}" alt="">
+                        <img src="{% static 'images/demo/donut.png' %}" alt="">
+                        <img src="{% static 'images/demo/year.png' %}" alt="">
+                        <img src="{% static 'images/demo/location.png' %}" alt="">
+                    </div>
+                            </div>
+                        </li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Stage 2: Helps you in understanding Anomalies & patterns in your data, based on relation of every column combination</summary>
+                    <ol>
+                        <li>Shows you detect every small anomaly or pattern within your dataset, and any relation of those anomaly with any pattern<div class="pattern">
+                    <img src="{% static 'images/demo/net.png' %}" style="background: black" alt="">
+                    <img src="{% static 'images/demo/pattern.png' %}" alt="">
+                </div></li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>Stage 3: Now simply ask your question, about business your problems, in natual language/voice, and see if your data can tell a story </summary>
+                    <ol>
+                        <li>Ask questions about your dataset in natural language or speak</li>
+                        <li>In return, you will see a statistically accurate conclusion, and every related visualization backing up that conclusion.<img src="{% static 'images/demo/pval.png' %}" style="background: black; margin: 10px;" alt=""></li>
+                        <li>Third point in the list</li>
+                        <li>Fourth point for completeness</li>
+                    </ol>
+                </details>
             </div>
-            <div class='demo' >
-                2. (Understand your data) See best suited highly crafted visualizations(out of 10,000 visualizations), <br>detailed breakdown of each column of your dataset.
 
-{#                <img src="{% static 'images/demo/spiral_optimized.gif' %}" style="width: 25vw;" alt="">#}
-                <h4>Global Temperature Change (1850–2024)</h4>
-
-<canvas id="spiralChart"></canvas>
-
-                <br><br>
-
-                <div class="graphs">
-                    <img src="{% static 'images/demo/America+homeless+transport.png' %}" alt="">
-                    <img src="{% static 'images/demo/donut.png' %}" alt="">
-                    <img src="{% static 'images/demo/year.png' %}" alt="">
-                    <img src="{% static 'images/demo/location.png' %}" alt="">
-                </div>
-
-
-
-            </div>
 
 
         </div>
-        </fieldset>
-
-
-    <fieldset>
-        <legend class="demo-head">Stage 2: anomalies & patterns affecting your business</legend>
-        <div class='demo' >
-            3. Shows you detect every small anomaly or pattern within your dataset, and any relation of those anomaly with any pattern
-            <br><br>
-            <div class="pattern">
-                <img src="{% static 'images/demo/net.png' %}" style="background: black" alt="">
-                <img src="{% static 'images/demo/pattern.png' %}" alt="">
-            </div>
-        </div>
-
-
-    </fieldset>
 
 
 
-        <fieldset>
-            <legend class="demo-head">Stage 3: Ask any business related concerns</legend>
-            <div class='demo' >
-                4. Ask questions about your dataset in natural language or speak
-                <div class="pattern">
-                    <img src="{% static 'images/demo/voice.jpg' %}" style="background: black; margin: 10px;" alt="">
-                </div>
-                <br><br>
-            </div>
-            <div class='demo' >
-                5. In return, you will see a statistically accurate conclusion, and every related visualization backing up that conclusion.
-                <div class="pattern">
-                    <img src="{% static 'images/demo/pval.png' %}" style="background: black; margin: 10px;" alt="">
-                </div>
-            </div>
-
-
-    </fieldset>
-
-    <a href="{% url 'demo' %}">
-        <button class="neomorphic-button">Demo - Coming Soon</button>
-    </a>
-
-            </div>
     </div>
 
 
@@ -95,127 +74,156 @@
 
 
 {% block scripts %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const temperatureData = [
-                {% for year_data in temperature_data %}
-                    [{{ year_data|join:", " }}],
-                {% endfor %}
-            ];
-            const startYear = {{ start_year|default:1850 }};
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const temperatureData = [
+            {% for year_data in temperature_data %}
+                [{{ year_data|join:", " }}],
+            {% endfor %}
+        ];
+        const startYear = {{ start_year|default:1850 }};
 
-            let yearIndex = 0;
-            let monthIndex = 0;
-            let labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            let allData = [];
+        let yearIndex = 0;
+        let monthIndex = 0;
+        let labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let allData = [];
+        let allColors = []; // Array to store gradient colors
 
-            const canvas = document.getElementById('spiralChart');
-            canvas.width = 600;  // Adjust as needed
-            canvas.height = 600; // Adjust as needed
-            console.log("Canvas size set to:", canvas.width, canvas.height);
+        const canvas = document.getElementById('spiralChart');
+        canvas.width = 600;
+        canvas.height = 600;
+        console.log("Canvas size set to:", canvas.width, canvas.height);
 
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                console.error("Canvas context not found!");
-                return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            console.error("Canvas context not found!");
+            return;
+        }
+
+        const centerYearPlugin = {
+            id: 'centerYear',
+            afterDatasetsDraw(chart) {
+                const { ctx, chartArea } = chart;
+                ctx.save();
+                ctx.font = 'bold 30px Arial';
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const centerX = (chartArea.left + chartArea.right) / 2;
+                const centerY = (chartArea.top + chartArea.bottom) / 2;
+                const currentYear = startYear + yearIndex;
+                ctx.fillText(currentYear, centerX, centerY);
+                ctx.restore();
             }
+        };
 
-            const centerYearPlugin = {
-                id: 'centerYear',
-                afterDatasetsDraw(chart) {
-                    const { ctx, chartArea } = chart;
-                    ctx.save();
-                    ctx.font = 'bold 16px Arial';
-                    ctx.fillStyle = 'white';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    const centerX = (chartArea.left + chartArea.right) / 2;
-                    const centerY = (chartArea.top + chartArea.bottom) / 2;
-                    const currentYear = startYear + yearIndex;
-                    ctx.fillText(currentYear, centerX, centerY);
-                    ctx.restore();
-                }
-            };
+        // Function to interpolate between two colors
+        function interpolateColor(value, minVal, maxVal, startColor, endColor) {
+            const ratio = (value - minVal) / (maxVal - minVal);
+            const r = Math.round(startColor.r + ratio * (endColor.r - startColor.r));
+            const g = Math.round(startColor.g + ratio * (endColor.g - startColor.g));
+            const b = Math.round(startColor.b + ratio * (endColor.b - startColor.b));
+            return `rgba(${r}, ${g}, ${b}, 0.37)`;
+        }
 
-            const chart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: "Global Temperature Anomaly (°C)",
-                        data: [],
-                        borderColor: 'rgba(230,212,16,0.6)',
-                        backgroundColor: 'rgba(255,0,0,0)',
-                        borderWidth: 2,
-                        pointRadius: 2,
+        // Function to compute color for a value
+        function getColorForValue(value) {
+            const minVal = -0.5; // Matches your scale min
+            const maxVal = 2;    // Matches your scale max
+            const startColor = { r: 0, g: 0, b: 255 };   // Blue
+            const endColor = { r: 255, g: 0, b: 0 };     // Red
+            const clampedValue = Math.max(minVal, Math.min(maxVal, value));
+            return interpolateColor(clampedValue, minVal, maxVal, startColor, endColor);
+        }
 
-                    }]
-                },
-                options: {
-                    animation: false,
-                    scales: {
-                        r: {
-                            angleLines: {
-                                display: true,
-                                color: "gray",
-                                lineWidth: 1,
-
+        const chart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Global Temperature Anomaly (°C)",
+                    data: [],
+                    borderColor: [], // Start with an empty array, will update dynamically
+                    backgroundColor: 'rgba(255,0,0,0)',
+                    borderWidth: 2,
+                    pointRadius: 0,          // No points
+                    pointHoverRadius: 0      // No hover effect on points
+                }]
+            },
+            options: {
+                animation: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true,
+                            color: "rgba(255, 255, 255, 0.2)",
+                            lineWidth: 1,
+                        },
+                        grid: {
+                            color: "rgba(255, 255, 255, 0.2)",
+                            lineWidth: 1,
+                            circular: true,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            color: "white",
+                            backdropColor: "rgba(0, 0, 0, 0)",
+                            font: {
+                                size: 16
                             },
-                            grid: {
-                                color: "rgba(255, 255, 255, 0.2)",
-                                lineWidth: 1,
-                                circular: true,
-                                borderDash: [5, 5]
+                            stepSize: 0.5,
+                            min: -0.5,
+                            max: 2,
+                            callback: function(value) {
+                                return value + '°C';
+                            }
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 16
                             },
-                            ticks: {
-                                color: "white",
-                                backdropColor: "rgba(0, 0, 0, 0)",
-                                        font: {
-                                    size: 16 // Increase label size (Jan, Feb, etc.)
-                                },
-                            },
-                            pointLabels: {
-                                font: {
-                                    size: 16 // Increase label size (Jan, Feb, etc.)
-                                },
-                                color: "white" // Match your theme
-                            },
-                            suggestedMin: -0.5,
-                            suggestedMax: 1.5
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false }
+                            color: "white"
+                        },
+                        suggestedMin: -0.5,
+                        suggestedMax: 2
                     }
                 },
-                plugins: [centerYearPlugin]
-            });
-
-            chart.resize();
-
-            function animateSpiral() {
-                if (yearIndex < temperatureData.length) {
-                    if (monthIndex < 12) {
-                        allData.push(temperatureData[yearIndex][monthIndex]);
-                        chart.data.datasets[0].data = allData;
-                        chart.update();
-                        monthIndex++;
-                    } else {
-                        monthIndex = 0;
-                        yearIndex++;
-                    }
-                } else {
-                    yearIndex = 0;
-                    monthIndex = 0;
-                    allData = [];
+                plugins: {
+                    legend: { display: false }
                 }
-                setTimeout(animateSpiral, 1);
-            }
-
-            animateSpiral();
+            },
+            plugins: [centerYearPlugin]
         });
-    </script>
+
+        chart.resize();
+
+        function animateSpiral() {
+            if (yearIndex < temperatureData.length) {
+                if (monthIndex < 12) {
+                    const value = temperatureData[yearIndex][monthIndex];
+                    allData.push(value);
+                    allColors.push(getColorForValue(value)); // Add corresponding color
+                    chart.data.datasets[0].data = allData;
+
+                    // Use the latest color for the entire line (limitation of radar chart)
+                    chart.data.datasets[0].borderColor = allColors[allColors.length - 1];
+                    chart.update();
+                    monthIndex++;
+                    setTimeout(animateSpiral, 1); // Continue animation
+                } else {
+                    monthIndex = 0;
+                    yearIndex++;
+                    setTimeout(animateSpiral, 1); // Move to next year
+                }
+            } else {
+                console.log("Animation finished after first cycle.");
+            }
+        }
+
+        animateSpiral();
+    });
+</script>
 {% endblock %}
 
 

@@ -18,6 +18,16 @@
     /*margin: 5px;*/
 }
 
+.demo-tutorial {
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: row;
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    width: 42vw;
+    font-size: 1em;
+}
+
 .demo > img {
     border: 1px solid white;
     width: 35vw;
@@ -25,7 +35,7 @@
 }
 
 
-.demo > .graphs {
+.graphs {
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
@@ -33,9 +43,9 @@
     padding: 5px;
 }
 
-.demo > .graphs > img {
+.graphs > img {
     display: grid;
-    width: 15vw;
+    width: 10vw;
     border-radius: 5px;
 }
 
