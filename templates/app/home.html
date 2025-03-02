@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-        <div id="layout" >
+        <div id="layout" style="background-image: url('{% static 'images/art/brand.png' %}');background-size: contain;background-repeat: no-repeat;">
         <div id="head">Announcing</div>
         <div id="tail">
     <fieldset style="border-top: none;">
@@ -19,7 +19,7 @@
                 <img src="{% static 'images/art/hero.png' %}" alt="">
                 <div class="service">Blazing-Fast, Statistically Significant Insights</div>
 
-                <div class="about">Offering statistically significant analysis, anomaly detection, and pattern recognition for both individuals and businesses data.</div>
+{#                <div class="about">Offering statistically significant analysis, anomaly detection, and pattern recognition for both individuals and businesses data.</div>#}
 
                 <div class="powered-by-ai">Enhanced By Artificial Intelligence</div>
                 <a href="{% url 'demo' %}">
