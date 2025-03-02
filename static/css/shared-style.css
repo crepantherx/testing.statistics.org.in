@@ -242,7 +242,7 @@ main > div {
     display: grid;
     grid-auto-flow: row;
     place-items: center;
-    place-content: center;
+    place-content: flex-start;
     /*height: 100vh;*/
     min-height: 80vh;
     place-self: center;
