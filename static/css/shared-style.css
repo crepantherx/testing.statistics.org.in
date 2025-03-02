@@ -51,7 +51,7 @@ body > footer {
 }
 
 header {
-    background-color: #050505;
+    background-color: #000000;
     text-align: center;
     width: 100%;
     display: grid;
@@ -177,7 +177,7 @@ position: fixed;
     width: 25px;
     height: 25px;
     fill: #ffffff;
-    background: #050505;
+    background: #000000;
 }
 
 
@@ -191,7 +191,7 @@ position: fixed;
     display: none;
     border-radius: 5px;
     border: 1px solid #252424;
-    background-color: #050505;
+    background-color: #000000;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -220,7 +220,7 @@ main {
     /*margin: 2rem;*/
     place-content: flex-start;
     place-items: center;
-    margin: 40px;
+    /*margin: 40px;*/
 }
 main > div {
     color: white;
@@ -279,7 +279,7 @@ legend {
 
 footer {
     padding: 10px;
-    background-color: #050505;
+    background-color: #000000;
     text-align: center;
     width: max-content;
     display: flex;
@@ -327,7 +327,7 @@ footer > nav > a {
 .neomorphic-button {
     font-size: 1rem;
     color: white;
-    background-color: #050505;
+    background-color: #000000;
     font-family: 'Uni Sans Heavy Regular', cursive;
     padding: 10px 30px 10px 30px;
     margin: 2em;
