@@ -53,7 +53,66 @@ def legal(request):
     return render(request, 'app/legal.html')
 
 def demo(request):
-    return render(request, 'app/demo.html')
+    csv_path = '/Users/crepantherx/PycharmProjects/testing.statistics.org.in/static/temperature_data.csv'
+
+    # Process the CSV into a list of yearly temperature arrays
+    temperature_data = []
+    current_year = None
+    year_data = []
+
+    with open(csv_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            year = int(row['Year'])
+            anomaly = float(row['Anomaly'])
+            if current_year != year:
+                if year_data:
+                    temperature_data.append(year_data)
+                year_data = []
+                current_year = year
+            year_data.append(anomaly)
+        if year_data:  # Append the last year
+            temperature_data.append(year_data)
+
+    # Pass the data to the template
+    context = {
+        'temperature_data': temperature_data,
+        'start_year': 1850  # Adjust based on your data
+    }
+    return render(request, 'app/demo.html', context)
 
 def pricing(request):
     return render(request, 'app/pricing.html')
+
+import json
+import csv
+
+
+def chart(request):
+    csv_path = '/Users/crepantherx/PycharmProjects/testing.statistics.org.in/static/temperature_data.csv'
+
+    # Process the CSV into a list of yearly temperature arrays
+    temperature_data = []
+    current_year = None
+    year_data = []
+
+    with open(csv_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            year = int(row['Year'])
+            anomaly = float(row['Anomaly'])
+            if current_year != year:
+                if year_data:
+                    temperature_data.append(year_data)
+                year_data = []
+                current_year = year
+            year_data.append(anomaly)
+        if year_data:  # Append the last year
+            temperature_data.append(year_data)
+
+    # Pass the data to the template
+    context = {
+        'temperature_data': temperature_data,
+        'start_year': 1850  # Adjust based on your data
+    }
+    return render(request, 'app/chart.html', context)
