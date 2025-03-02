@@ -11,5 +11,11 @@
     color: white;
     font-family: 'Inter', cursive;
     /*height: 85vh;*/
-    /*width: 30vh;*/
+    width: 40vh;
+}
+
+
+@media screen and (max-width: 768px) {
+
+width: auto;
 }
