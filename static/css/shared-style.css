@@ -42,6 +42,13 @@ body {
     background-color: #000000;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+    overflow-y: auto; /* Enables vertical scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+body ::-webkit-scrollbar {
+    display: none;
 }
 
 body > header,
@@ -245,6 +252,7 @@ main > div {
     color: white;
     font-family: 'adl', cursive;
     text-align: center;
+
 }
 
 #tail {
@@ -252,6 +260,13 @@ main > div {
     place-self: center;
     place-content: center;
     text-align: center;
+        overflow-y: auto; /* Enables vertical scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+#tail::-webkit-scrollbar {
+    display: none;
 }
 
 
