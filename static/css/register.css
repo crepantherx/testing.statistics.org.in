@@ -17,6 +17,7 @@
     position: relative;
     place-content: center;
     place-items: center;
+    padding: 30px;
 }
 
 .custom-form {
