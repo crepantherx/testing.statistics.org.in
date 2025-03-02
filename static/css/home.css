@@ -13,8 +13,8 @@
     font-family: 'adl', cursive;
     padding: 10px;
     color: white;
-    margin: 10px;
-    font-size: 1.5vh;
+    /*margin: 10px;*/
+    font-size: 14px;
     letter-spacing: 2px;
     background: linear-gradient(45deg, #0c69b6, #e10000);
     -webkit-background-clip: text;
@@ -47,7 +47,7 @@
     /*margin-top: 4rem;*/
     margin-top: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
-    font-size: 2.2vh;
+    font-size: 20px;
     color: #ffffff;
     /*letter-spacing: 1px;*/
     /*    background: linear-gradient(45deg, #6de681, #ac9bb2);*/
@@ -61,7 +61,7 @@
 
 
     font-family: 'Inter', cursive;
-    font-size: 1rem;
+    font-size: 16px;
     color: #949191;
 }
 
