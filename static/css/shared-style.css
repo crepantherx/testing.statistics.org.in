@@ -249,6 +249,8 @@ main > div {
 
 #tail {
     place-items: center;
+    place-self: center;
+    place-content: center;
     text-align: center;
 }
 
