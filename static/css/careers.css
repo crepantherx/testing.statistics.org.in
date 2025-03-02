@@ -44,7 +44,7 @@
 .job-postings > .card > .talk-to-us {
     font-size: 0.8rem;
     color: white;
-    background-color: #050505;
+    background-color: #000000;
     font-family: 'Uni Sans Heavy Regular', cursive;
     padding: 10px 30px 10px 30px;
     border-radius: 50px;
@@ -56,7 +56,7 @@
 .job-postings > .card > .features {
     font-size: 1rem;
     color: #9d9696;
-    background-color: #050505;
+    background-color: #000000;
     font-family: 'Uni Sans Heavy Regular', cursive;
     text-align: left;
     place-self: flex-start;

@@ -11,12 +11,12 @@
     color: white;
     font-family: 'Inter', cursive;
     /*height: 85vh;*/
-    width: 40vh;
+    /*width: 40vh;*/
     text-align: center;
 }
 
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {*/
 
-width: 90vw;
-}
+/*width: 90vw;*/
+/*}*/
