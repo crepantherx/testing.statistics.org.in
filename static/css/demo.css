@@ -3,14 +3,19 @@
     gap: 8vh;
 }
 
+.demo-head {
+    font-family: Inter, sans-serif;
+    font-size: 25px;
+}
+
 .demo {
-    text-align: left;
+    text-align: center;
     font-family: 'Inter', sans-serif;
     color: white;
     display: grid;
     grid-auto-flow: row;
     place-items: center;
-    margin: 5px;
+    /*margin: 5px;*/
 }
 
 .demo > img {
@@ -18,6 +23,7 @@
     width: 35vw;
     border-radius: 5px;
 }
+
 
 .demo > .graphs {
     display: grid;
@@ -38,4 +44,13 @@
     width: 30vw;
     /*grid-auto-flow: column;*/
     height: 50vh;
+}
+
+#spiralChart {
+    width: 400px !important;
+    height: 400px !important;
+    max-width: none !important; /* Prevent parent constraints */
+    max-height: none !important;
+    display: block;
+    margin: 20px auto;
 }

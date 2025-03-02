@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Spiral Temperature Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color: black; color: white; text-align: center;">
+    <h2>Global Temperature Change (1850–2016)</h2>
+    <canvas id="spiralChart"></canvas>
+
+    <script>
+        // Pass Django data to JavaScript
+        const temperatureData = [
+            {% for year_data in temperature_data %}
+                [{{ year_data|join:", " }}],
+            {% endfor %}
+        ];
+        const startYear = {{ start_year }};
+
+        let yearIndex = 0;
+        let monthIndex = 0;
+        let labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let allData = [];
+
+        const ctx = document.getElementById('spiralChart').getContext('2d');
+
+        const centerYearPlugin = {
+            id: 'centerYear',
+            afterDatasetsDraw(chart) {
+                const { ctx, chartArea } = chart;
+                ctx.save();
+                ctx.font = 'bold 24px Arial';
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const centerX = (chartArea.left + chartArea.right) / 2;
+                const centerY = (chartArea.top + chartArea.bottom) / 2;
+                const currentYear = startYear + yearIndex;
+                ctx.fillText(currentYear, centerX, centerY);
+                ctx.restore();
+            }
+        };
+
+        const chart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Global Temperature Anomaly (°C)",
+                    data: [],
+                    borderColor: 'red',
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    borderWidth: 2,
+                    pointRadius: 2
+                }]
+            },
+            options: {
+                animation: false,
+                scales: {
+                    r: {
+                        angleLines: { color: "gray" },
+                        grid: { color: "gray" },
+                        suggestedMin: -0.5,
+                        suggestedMax: 2.5
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            },
+            plugins: [centerYearPlugin]
+        });
+
+        function animateSpiral() {
+            if (yearIndex < temperatureData.length) {
+                if (monthIndex < 12) {
+                    allData.push(temperatureData[yearIndex][monthIndex]);
+                    chart.data.datasets[0].data = allData;
+                    chart.update();
+                    monthIndex++;
+                } else {
+                    monthIndex = 0;
+                    yearIndex++;
+                }
+            } else {
+                yearIndex = 0;
+                monthIndex = 0;
+                allData = [];
+            }
+            setTimeout(animateSpiral, 50);
+        }
+
+        animateSpiral();
+    </script>
+</body>
+</html>
