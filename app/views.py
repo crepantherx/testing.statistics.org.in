@@ -52,8 +52,11 @@ def careers(request):
 def legal(request):
     return render(request, 'app/legal.html')
 
+import os
+from django.conf import settings
+
 def demo(request):
-    csv_path = '/Users/crepantherx/PycharmProjects/testing.statistics.org.in/static/temperature_data.csv'
+    csv_path = os.path.join(settings.BASE_DIR, 'static', 'temperature_data.csv')
 
     # Process the CSV into a list of yearly temperature arrays
     temperature_data = []
