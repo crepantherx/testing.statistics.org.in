@@ -330,7 +330,7 @@ footer > nav {
 }
 footer > nav > a {
     text-decoration: none;
-    font-size: .9rem;
+    font-size: 1em;
     color: #a4a4a4;
 }
 
@@ -356,7 +356,7 @@ footer > nav > a {
 body > header,
 body > main,
 body > footer {
-    width: 100%;
+    width: auto;
 }
 
     header > nav {
@@ -376,7 +376,7 @@ body > footer {
 
     footer > nav {
     border-top: 1px solid #252424;
-    width: 100%;
+    width: auto;
     display: grid;
     grid-auto-flow: column;
     place-items: center;
@@ -384,6 +384,7 @@ body > footer {
     place-content: space-evenly;
     padding: 10px;
     font-family: 'Uni Sans Heavy Regular', cursive;
+        gap: 10px;
 }
 
 
