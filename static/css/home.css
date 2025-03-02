@@ -14,7 +14,7 @@
     padding: 10px;
     color: white;
     /*margin: 10px;*/
-    font-size: 14px;
+    font-size: 1.3vh;
     letter-spacing: 2px;
     background: linear-gradient(45deg, #0c69b6, #e10000);
     -webkit-background-clip: text;
@@ -27,7 +27,7 @@
 
 .page-1 >.hero {
 
-    width: 45vh;
+    width: 36vh;
     height: auto;
     display: grid;
     place-items: center;
@@ -47,7 +47,7 @@
     /*margin-top: 4rem;*/
     margin-top: 1rem;
     font-family: 'Uni Sans Heavy Regular', cursive;
-    font-size: 20px;
+    font-size: 1.8vh;
     color: #ffffff;
     /*letter-spacing: 1px;*/
     /*    background: linear-gradient(45deg, #6de681, #ac9bb2);*/
