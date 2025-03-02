@@ -1,5 +1,6 @@
 .service-tiers {
     display: flex;
+    flex-direction: column;
     gap: 40px;
 
 }
@@ -29,17 +30,17 @@
     padding: 40px;
     border-radius: 50px;
     /*width: 50vw;*/
-    height: 30vh;
+    /*height: 20vh;*/
     gap: 5px;
     position: relative;
-    place-content: space-between;
-    place-items: center stretch;
+    place-content: center;
+    place-items: center;
 
     color: white;
     background-color: #050505;
     font-family: 'Uni Sans Heavy Regular', cursive;
 
-
+    width: 100%;
 
 
         box-shadow:
