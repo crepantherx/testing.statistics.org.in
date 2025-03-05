@@ -334,6 +334,12 @@ footer > nav > a {
     color: #a4a4a4;
 }
 
+footer > nav > section > img{
+            width: 16px;
+            place-items: center;
+            place-content: center;
+        }
+
 
 
 
@@ -386,6 +392,8 @@ body > footer {
     font-family: 'Uni Sans Heavy Regular', cursive;
         gap: 10px;
 }
+
+
 
 
     fieldset {
