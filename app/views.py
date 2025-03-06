@@ -5,11 +5,17 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import RegistrationForm, LoginForm
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib import messages
+from .forms import RegistrationForm
+
 def register_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            # Log the user in after registration
             login(request, user)
             messages.success(request, 'Registration successful!')
             return redirect('home')
