@@ -31,6 +31,8 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
+    # Clear any existing messages before adding the new one
+    messages.get_messages(request).used = True  # Mark existing messages as used
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
 
@@ -90,6 +92,13 @@ def pricing(request):
 import json
 import csv
 
+from django.http import HttpResponseNotFound, HttpResponseServerError
+
+def custom_404_view(request, exception):
+    return HttpResponseNotFound('<h1>404 - Page Not Found</h1><p>The page you requested does not exist.</p>')
+
+def custom_500_view(request):
+    return HttpResponseServerError('<h1>500 - Server Error</h1><p>An error occurred on the server. Please try again later.</p>')
 
 def chart(request):
     csv_path = '/Users/crepantherx/PycharmProjects/testing.statistics.org.in/static/temperature_data.csv'

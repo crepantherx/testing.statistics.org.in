@@ -51,13 +51,23 @@
 
                     <nav class="profile-panel" id="profilePanel">
                         <ul>
-                            <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'register' %}">Sign Up</a></li>
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>
 
-                <div style="color: white; font-size: 13px;">Profile</div>
+                <div style="color: white; font-size: 13px;">
+                    {% if request.user.is_authenticated %}
+                        {{ request.user.username }}
+                    {% else %}
+                        Profile
+                    {% endif %}
+                </div>
 
             </div>
         </nav>
