@@ -26,12 +26,16 @@ def register_view(request):
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
-        if form.is_valid():
+        if form.is_valid():  # This is where if form.is_valid(): belongs
             user = form.get_user()
             login(request, user)
             messages.success(request, 'Logged in successfully!')
             return redirect('home')
+        else:
+            # Handle unsuccessful login by adding an error message
+            messages.error(request, 'Invalid username or password.')
     else:
+        # For GET requests, display an empty form
         form = LoginForm()
     return render(request, 'app/login.html', {'form': form})
 
