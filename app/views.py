@@ -140,7 +140,8 @@ def chart(request):
     }
     return render(request, 'app/chart.html', context)
 
-import pandas as pd
+
+import tafra as pd
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import CSVUploadForm
