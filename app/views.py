@@ -110,6 +110,7 @@ def custom_404_view(request, exception):
 def custom_500_view(request):
     return HttpResponseServerError('<h1>500 - Server Error</h1><p>An error occurred on the server. Please try again later.</p>')
 
+
 def chart(request):
     csv_path = '/Users/crepantherx/PycharmProjects/testing.statistics.org.in/static/temperature_data.csv'
 
