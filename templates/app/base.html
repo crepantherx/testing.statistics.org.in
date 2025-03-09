@@ -51,13 +51,23 @@
 
                     <nav class="profile-panel" id="profilePanel">
                         <ul>
-                            <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'register' %}">Sign Up</a></li>
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>
 
-                <div style="color: white; font-size: 13px;">Profile</div>
+                <div style="color: white; font-size: 13px;">
+                    {% if request.user.is_authenticated %}
+                        {{ request.user.first_name|capfirst }} {{ request.user.last_name|capfirst }}
+                    {% else %}
+                        Profile
+                    {% endif %}
+                </div>
 
             </div>
         </nav>
@@ -77,12 +87,13 @@
         <nav>
             <a href="{% url 'about' %}">About us</a>
             <a href="{% url 'careers' %}">Careers</a>
-                    <section>
-            <img src="{% static 'images/icons/twitter.svg' %}" alt="">
-            <img src="{% static 'images/icons/facebook.svg' %}" alt="">
-            <img src="{% static 'images/icons/youtube.svg' %}" alt="">
-            <img src="{% static 'images/icons/insta.svg' %}" alt="">
-        </section>
+{#            <section>#}
+{#                <img src="{% static 'images/icons/twitter.svg' %}" alt="">#}
+{#                <img src="{% static 'images/icons/facebook.svg' %}" alt="">#}
+{#                <img src="{% static 'images/icons/youtube.svg' %}" alt="">#}
+{#                <img src="{% static 'images/icons/insta.svg' %}" alt="">#}
+{#            </section>#}
+{#            <a href="{% url 'socials' %}">Socials</a>#}
             <a href="mailto:business@statistics.org.in?subject=Contact%20Deep%20Statistics">Contact Us</a>
             <a href="{% url 'legal' %}">Legal</a>
         </nav>

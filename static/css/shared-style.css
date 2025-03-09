@@ -330,9 +330,15 @@ footer > nav {
 }
 footer > nav > a {
     text-decoration: none;
-    font-size: 1em;
+    font-size: 12px;
     color: #a4a4a4;
 }
+
+footer > nav > section > img{
+            width: 16px;
+            place-items: center;
+            place-content: center;
+        }
 
 
 
@@ -376,7 +382,7 @@ body > footer {
 
     footer > nav {
     border-top: 1px solid #252424;
-    width: auto;
+    width: 100vw;
     display: grid;
     grid-auto-flow: column;
     place-items: center;
@@ -386,6 +392,8 @@ body > footer {
     font-family: 'Uni Sans Heavy Regular', cursive;
         gap: 10px;
 }
+
+
 
 
     fieldset {

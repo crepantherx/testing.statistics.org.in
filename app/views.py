@@ -5,11 +5,17 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import RegistrationForm, LoginForm
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib import messages
+from .forms import RegistrationForm
+
 def register_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            # Log the user in after registration
             login(request, user)
             messages.success(request, 'Registration successful!')
             return redirect('home')
@@ -20,17 +26,23 @@ def register_view(request):
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
-        if form.is_valid():
+        if form.is_valid():  # This is where if form.is_valid(): belongs
             user = form.get_user()
             login(request, user)
             messages.success(request, 'Logged in successfully!')
             return redirect('home')
+        else:
+            # Handle unsuccessful login by adding an error message
+            messages.error(request, 'Invalid username or password.')
     else:
+        # For GET requests, display an empty form
         form = LoginForm()
     return render(request, 'app/login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
+    # Clear any existing messages before adding the new one
+    messages.get_messages(request).used = True  # Mark existing messages as used
     messages.success(request, 'Logged out successfully!')
     return redirect('login')
 
@@ -89,6 +101,14 @@ def pricing(request):
 
 import json
 import csv
+
+from django.http import HttpResponseNotFound, HttpResponseServerError
+
+def custom_404_view(request, exception):
+    return HttpResponseNotFound('<h1>404 - Page Not Found</h1><p>The page you requested does not exist.</p>')
+
+def custom_500_view(request):
+    return HttpResponseServerError('<h1>500 - Server Error</h1><p>An error occurred on the server. Please try again later.</p>')
 
 
 def chart(request):

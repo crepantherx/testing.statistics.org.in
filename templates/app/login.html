@@ -12,11 +12,7 @@
         <div id="tail">
     <div class="login">
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
+
     <form method="post" class="custom-form">
         {% csrf_token %}
         <div class="form-group">
@@ -37,6 +33,18 @@
     </form>
     <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
     </div>
+
+        <div style="margin: 20px; font-family: Inter, sans-serif;">
+                                {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
         </div>
+
+        </div>
+
             </div>
+
+
 {% endblock %}
