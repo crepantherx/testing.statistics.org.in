@@ -139,3 +139,41 @@ def chart(request):
         'start_year': 1850  # Adjust based on your data
     }
     return render(request, 'app/chart.html', context)
+
+import pandas as pd
+from django.shortcuts import render
+from django.contrib import messages
+from .forms import CSVUploadForm
+from .utils.chart_generator import generate_charts
+
+
+def upload_csv_view(request):
+    if request.method == 'POST':
+        form = CSVUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                csv_file = request.FILES['csv_file']
+                df = pd.read_csv(csv_file, header=0, index_col=0)
+
+                print("DataFrame head:", df.head().to_string())  # Debug
+                print("Columns:", df.columns.tolist())  # Debug
+
+                if df.empty or len(df.columns) == 0:
+                    messages.error(request, "CSV is empty or invalid")
+                    return render(request, 'app/upload_csv.html', {'form': form})
+
+                charts = generate_charts(df)
+                print("Charts generated:", {k: len(v) for k, v in charts.items()})  # Debug
+
+                return render(request, 'app/upload_csv.html', {
+                    'form': form,
+                    'numerical_columns': charts['numerical_columns'],
+                    'categorical_columns': charts['categorical_columns'],
+                    'any_columns': charts['any_columns']
+                })
+            except Exception as e:
+                messages.error(request, f"Error: {str(e)}")
+                return render(request, 'app/upload_csv.html', {'form': form})
+    else:
+        form = CSVUploadForm()
+    return render(request, 'app/upload_csv.html', {'form': form})

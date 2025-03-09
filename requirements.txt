@@ -11,3 +11,5 @@ urllib3==2.2.3
 setuptools
 python-dotenv
 psycopg2-binary
+pandas
+matplotlib

@@ -1,0 +1,104 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block head %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="layout">
+        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 1px;">Demo</div>
+        <div>
+            <div style="text-align: center">
+                <form method="post" enctype="multipart/form-data" style="font-family: Inter, sans-serif">
+                    {% csrf_token %}
+                    {{ form.csv_file }}
+                    <button type="submit">Upload</button>
+                </form>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div>{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+
+            <div style="width: 70vw; display: grid; grid-auto-flow: row; gap:10px; font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 1px; margin-top: 10vh;">
+                {% if numerical_columns %}
+                    <details>
+                        <summary>Numerical Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in numerical_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+
+                {% if categorical_columns %}
+                    <details>
+                        <summary>Categorical Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in categorical_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+
+             {% if any_columns %}
+                    <details>
+                        <summary>Any Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in any_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+            </div>
+
+
+        </div>
+    </div>
+
+    <style>
+        .flex-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Four equal-width columns */
+    {#padding: 0px 15px;#}
+    {#margin: 0 auto;#}
+    grid-row-gap: 20px;
+    grid-column-gap: 20px; /* Adds spacing between columns and rows */
+            {#overflow: hidden;#}
+}
+
+        .flex-item {
+           {#height: calc(20vh - 10px); /* 3 items per row */#}
+           {# width: auto;#}
+            {#overflow: hidden;#}
+        }
+
+
+
+
+    </style>
+
+
+{% endblock %}
