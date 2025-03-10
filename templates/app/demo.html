@@ -9,18 +9,22 @@
 
 {% block content %}
     <div id="layout">
-        <div id="head">Demo</div>
+        <div id="head">How it works</div>
         <div id="tail">
-<div style="font-family: 'Inter', sans-serif">Global Average Temperature Increase (1850–2024)</div>
-                    <canvas id="spiralChart"></canvas>
+{#<div style="font-family: 'Inter', sans-serif">Global Average Temperature Increase (1850–2024)</div>#}
+{#                    <canvas id="spiralChart"></canvas>#}
 
             <a href="{% url 'upload_csv' %}">
-            <button class="neomorphic-button">Basic Demo</button>
+{#            <button class="neomorphic-button">Basic Demo</button>#}
         </a>
 
-            <div class="demo-tutorial">
+            <a href="{% url 'login' %}">
+                    <button class="neomorphic-button">Demo</button>
+            </a>
+            <br><br>
+            <div class="demo-tutorial" style="width: 80vh;">
                 <details>
-                    <summary>Stage 1: We make sure that your data is easily understandable to you by effective visualization</summary>
+                    <summary>Phase I <br><br>We make sure that your data is easily understandable to you by effective visualization</summary>
                     <ol>
                         <li>Upload your dataset or connect your data source</li>
                         <li>
@@ -28,29 +32,29 @@
 
                             <div>
 
-                    <div class="graphs">
-                        <img src="{% static 'images/demo/America+homeless+transport.png' %}" alt="">
-                        <img src="{% static 'images/demo/donut.png' %}" alt="">
-                        <img src="{% static 'images/demo/year.png' %}" alt="">
-                        <img src="{% static 'images/demo/location.png' %}" alt="">
-                    </div>
+{#                    <div class="graphs">#}
+{#                        <img src="{% static 'images/demo/America+homeless+transport.png' %}" alt="">#}
+{#                        <img src="{% static 'images/demo/donut.png' %}" alt="">#}
+{#                        <img src="{% static 'images/demo/year.png' %}" alt="">#}
+{#                        <img src="{% static 'images/demo/location.png' %}" alt="">#}
+{#                    </div>#}
                             </div>
                         </li>
                     </ol>
                 </details>
 
                 <details>
-                    <summary>Stage 2: Helps you in understanding Anomalies & patterns in your data, based on relation of every column combination</summary>
+                    <summary>Phase II<br><br>Helps you in understanding Anomalies & patterns in your data, based on relation of every column combination</summary>
                     <ol>
                         <li>Shows you detect every small anomaly or pattern within your dataset, and any relation of those anomaly with any pattern<div class="pattern">
-                    <img src="{% static 'images/demo/net.png' %}" style="background: black" alt="">
-                    <img src="{% static 'images/demo/pattern.png' %}" alt="">
+{#                    <img src="{% static 'images/demo/net.png' %}" style="background: black" alt="">#}
+{#                    <img src="{% static 'images/demo/pattern.png' %}" alt="">#}
                 </div></li>
                     </ol>
                 </details>
 
                 <details>
-                    <summary>Stage 3: Then simply ask your question, about business your problems, in natual language/voice, and see if your data can tell a story </summary>
+                    <summary>Phase III<br><br> Thereafter, simply ask your question, about business your problems, in natual language/voice, and see if your data can tell a story </summary>
                     <ol>
                         <li>Ask questions about your dataset in natural language or speak</li>
                         <li>In return, you will see a statistically accurate conclusion, and every related visualization backing up that conclusion.<img src="{% static 'images/demo/pval.png' %}" style="background: black; margin: 10px;" alt=""></li>

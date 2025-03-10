@@ -30,7 +30,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, 'Logged in successfully!')
-            return redirect('home')
+            return redirect('upload_csv')
         else:
             # Handle unsuccessful login by adding an error message
             messages.error(request, 'Invalid username or password.')

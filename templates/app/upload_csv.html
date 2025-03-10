@@ -1,26 +1,41 @@
 {% extends "app/base.html" %}
 {% load static %}
 
-{% block head %}
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-{% endblock %}
 
 {% block content %}
     <div id="layout">
-        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 2px; font-size: 24px"></div>
+        <div id="head" >
+            <div>Demo</div>
+            <div style="display: flex; place-items: center; padding: 10px;">
+
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="csv_file" id="fileInput" style="display: none;">
+                    <button type="button" id="uploadButton" class="neomorphic-button" >Data Upload</button>
+                </form>
+
+            <div>/</div>
+
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="csv_file" id="fileInput" style="display: none;">
+                    <button type="button" id="uploadButton" class="neomorphic-button">Connect Data</button>
+                </form>
+            </div>
+
+
+        </div>
         <div>
             <div style="text-align: center">
-                <form id="uploadForm" method="post" enctype="multipart/form-data" style="font-family: Inter, sans-serif; letter-spacing: 2px; font-size: 24px">
-    {% csrf_token %}
-    <input type="file" name="csv_file" id="fileInput" style="display: none;">
-    <button type="button" id="uploadButton" class="neomorphic-button" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; font-size: 20px ;letter-spacing: 2px; ">Choose and Upload</button>
-</form>
 
-                {% if messages %}
-                    {% for message in messages %}
-                        <div>{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
+
+
+
+{#                {% if messages %}#}
+{#                    {% for message in messages %}#}
+{#                        <div>{{ message }}</div>#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
 
             </div>
 
