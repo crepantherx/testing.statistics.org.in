@@ -1,7 +1,7 @@
 @import url(https://db.onlinewebfonts.com/c/4f6fb2fa3c231278167b36e966718cbb?family=Uni+Sans+Heavy+Regular);
 @font-face {
     font-family: 'adl';
-    src: url('adelia.ttf') format('truetype');
+    src: url('../fonts/adelia.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
