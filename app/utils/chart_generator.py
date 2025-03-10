@@ -4,7 +4,8 @@ import base64
 from typing import List, Dict
 
 
-def generate_charts(data: List[List[str]], headers: List[str], container_width: int = 1200) -> Dict[str, List[str]]:
+def generate_charts(data, headers, container_width=1200):  # Remove type hints for safety
+
     charts = {
         "numerical_columns": [],
         "categorical_columns": [],

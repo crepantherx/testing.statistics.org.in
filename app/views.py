@@ -178,7 +178,7 @@ def upload_csv_view(request):
                     except ValueError:
                         categorical_columns.append(headers[i])
 
-                charts = generate_charts(headers, data, numerical_columns, categorical_columns)
+                charts = generate_charts(data, headers)
 
                 return render(request, 'app/upload_csv.html', {
                     'form': form,
