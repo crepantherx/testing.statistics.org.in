@@ -30,7 +30,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, 'Logged in successfully!')
-            return redirect('home')
+            return redirect('upload_csv')
         else:
             # Handle unsuccessful login by adding an error message
             messages.error(request, 'Invalid username or password.')
@@ -139,3 +139,56 @@ def chart(request):
         'start_year': 1850  # Adjust based on your data
     }
     return render(request, 'app/chart.html', context)
+
+
+from .utils.chart_generator import generate_charts
+
+import csv
+from django.shortcuts import render
+from django.contrib import messages
+from .forms import CSVUploadForm
+
+
+def upload_csv_view(request):
+    if request.method == 'POST':
+        form = CSVUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                csv_file = request.FILES['csv_file']
+                decoded_file = csv_file.read().decode('utf-8').splitlines()
+                reader = csv.reader(decoded_file)
+
+                headers = next(reader, None)  # Read the header row
+                if not headers:
+                    messages.error(request, "CSV file is empty or missing headers.")
+                    return render(request, 'app/upload_csv.html', {'form': form})
+
+                data = list(reader)  # Read the rest of the file
+                if not data:
+                    messages.error(request, "CSV file contains no data.")
+                    return render(request, 'app/upload_csv.html', {'form': form})
+
+                # Identify numerical and categorical columns
+                numerical_columns = []
+                categorical_columns = []
+                for i, col in enumerate(zip(*data)):
+                    try:
+                        [float(value) for value in col]  # Attempt to convert all values to float
+                        numerical_columns.append(headers[i])
+                    except ValueError:
+                        categorical_columns.append(headers[i])
+
+                charts = generate_charts(data, headers)
+
+                return render(request, 'app/upload_csv.html', {
+                    'form': form,
+                    'numerical_columns': charts['numerical_columns'],
+                    'categorical_columns': charts['categorical_columns'],
+                    'any_columns': charts['any_columns']
+                })
+            except Exception as e:
+                messages.error(request, f"Error: {str(e)}")
+                return render(request, 'app/upload_csv.html', {'form': form})
+    else:
+        form = CSVUploadForm()
+    return render(request, 'app/upload_csv.html', {'form': form})

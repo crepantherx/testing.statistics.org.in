@@ -20,3 +20,6 @@ class RegistrationForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Username')
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
+
+class CSVUploadForm(forms.Form):
+    csv_file = forms.FileField(label='Upload CSV File')
