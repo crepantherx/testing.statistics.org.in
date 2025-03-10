@@ -141,11 +141,12 @@ def chart(request):
     return render(request, 'app/chart.html', context)
 
 
-import tafra as pd
+from .utils.chart_generator import generate_charts
+
+import csv
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import CSVUploadForm
-from .utils.chart_generator import generate_charts
 
 
 def upload_csv_view(request):
@@ -154,17 +155,30 @@ def upload_csv_view(request):
         if form.is_valid():
             try:
                 csv_file = request.FILES['csv_file']
-                df = pd.read_csv(csv_file, header=0, index_col=0)
+                decoded_file = csv_file.read().decode('utf-8').splitlines()
+                reader = csv.reader(decoded_file)
 
-                print("DataFrame head:", df.head().to_string())  # Debug
-                print("Columns:", df.columns.tolist())  # Debug
-
-                if df.empty or len(df.columns) == 0:
-                    messages.error(request, "CSV is empty or invalid")
+                headers = next(reader, None)  # Read the header row
+                if not headers:
+                    messages.error(request, "CSV file is empty or missing headers.")
                     return render(request, 'app/upload_csv.html', {'form': form})
 
-                charts = generate_charts(df)
-                print("Charts generated:", {k: len(v) for k, v in charts.items()})  # Debug
+                data = list(reader)  # Read the rest of the file
+                if not data:
+                    messages.error(request, "CSV file contains no data.")
+                    return render(request, 'app/upload_csv.html', {'form': form})
+
+                # Identify numerical and categorical columns
+                numerical_columns = []
+                categorical_columns = []
+                for i, col in enumerate(zip(*data)):
+                    try:
+                        [float(value) for value in col]  # Attempt to convert all values to float
+                        numerical_columns.append(headers[i])
+                    except ValueError:
+                        categorical_columns.append(headers[i])
+
+                charts = generate_charts(headers, data, numerical_columns, categorical_columns)
 
                 return render(request, 'app/upload_csv.html', {
                     'form': form,
