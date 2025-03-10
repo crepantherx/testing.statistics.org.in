@@ -7,10 +7,10 @@
 
 {% block content %}
     <div id="layout">
-        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 2px; font-size: 16px">Demo</div>
+        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 2px; font-size: 24px">Demo</div>
         <div>
             <div style="text-align: center">
-                <form method="post" enctype="multipart/form-data" style="font-family: Inter, sans-serif; letter-spacing: 2px; font-size: 16px">
+                <form method="post" enctype="multipart/form-data" style="font-family: Inter, sans-serif; letter-spacing: 2px; font-size: 24px">
                     {% csrf_token %}
                     {{ form.csv_file }}
                     <button type="submit">Upload</button>
