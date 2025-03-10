@@ -7,13 +7,13 @@
 
 {% block content %}
     <div id="layout">
-        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 2px; font-size: 24px">Demo</div>
+        <div id="head" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 2px; font-size: 24px"></div>
         <div>
             <div style="text-align: center">
                 <form id="uploadForm" method="post" enctype="multipart/form-data" style="font-family: Inter, sans-serif; letter-spacing: 2px; font-size: 24px">
     {% csrf_token %}
     <input type="file" name="csv_file" id="fileInput" style="display: none;">
-    <button type="button" id="uploadButton">Choose and Upload</button>
+    <button type="button" id="uploadButton" class="neomorphic-button" style="font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; font-size: 20px ;letter-spacing: 2px; ">Choose and Upload</button>
 </form>
 
                 {% if messages %}
