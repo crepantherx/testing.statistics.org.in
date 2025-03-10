@@ -1,0 +1,43 @@
+.dropdown-container {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        /* Style for the dropdown button */
+        .dropdown-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        .dropdown-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Active state */
+        .dropdown-btn.active {
+            background-color: #3d8b40;
+        }
+
+        /* Style for the dropdown content */
+        .dropdown-content {
+            padding: 0 18px;
+            background-color: #f9f9f9;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        /* Show the content when active */
+        .dropdown-content.active {
+            padding: 18px;
+            max-height: 200px; /* Adjust this value based on your content */
+        }

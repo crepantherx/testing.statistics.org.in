@@ -1,0 +1,131 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div id="layout">
+        <div id="head" >
+            <div>Demo</div>
+            <div style="display: flex; place-items: center; padding: 10px;">
+
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="csv_file" id="fileInput" style="display: none;">
+                    <button type="button" id="uploadButton" class="neomorphic-button" >Data Upload</button>
+                </form>
+
+            <div>/</div>
+
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="csv_file" id="fileInput" style="display: none;">
+                    <button type="button" id="uploadButton" class="neomorphic-button">Connect Data</button>
+                </form>
+            </div>
+
+
+        </div>
+        <div>
+            <div style="text-align: center">
+
+
+
+
+{#                {% if messages %}#}
+{#                    {% for message in messages %}#}
+{#                        <div>{{ message }}</div>#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
+
+            </div>
+
+            <div style="width: 70vw; display: grid; grid-auto-flow: row; gap:10px; font-family: 'Uni Sans Heavy Regular', 'Uni Sans', sans-serif; letter-spacing: 1px; margin-top: 10vh;">
+                {% if numerical_columns %}
+                    <details>
+                        <summary>Numerical Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in numerical_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+
+                {% if categorical_columns %}
+                    <details>
+                        <summary>Categorical Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in categorical_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+
+             {% if any_columns %}
+                    <details>
+                        <summary>Any Columns</summary>
+                        <ul>
+                            <li>
+                                 <div class="flex-container">
+                                    {% for chart in any_columns %}
+                                        <div class="flex-item">{{ chart|safe }}</div>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
+
+                {% endif %}
+            </div>
+
+
+        </div>
+    </div>
+
+    <style>
+        .flex-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Four equal-width columns */
+    {#padding: 0px 15px;#}
+    {#margin: 0 auto;#}
+    grid-row-gap: 20px;
+    grid-column-gap: 20px; /* Adds spacing between columns and rows */
+            {#overflow: hidden;#}
+}
+
+        .flex-item {
+           {#height: calc(20vh - 10px); /* 3 items per row */#}
+           {# width: auto;#}
+            {#overflow: hidden;#}
+        }
+
+
+
+
+    </style>
+
+
+        <script>
+    document.getElementById("uploadButton").addEventListener("click", function () {
+        document.getElementById("fileInput").click();
+    });
+
+    document.getElementById("fileInput").addEventListener("change", function () {
+        if (this.files.length > 0) {
+            document.getElementById("uploadForm").submit();
+        }
+    });
+</script>
+
+{% endblock %}
