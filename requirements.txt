@@ -12,3 +12,4 @@ setuptools
 python-dotenv
 psycopg2-binary
 matplotlib
+pandas
